@@ -8,7 +8,7 @@ Easy & handy dialogs for your apps logic 🧚🏼‍👨🏼‍💻
 Add this import line
 
 ```dart
-import 'package:dialogs/dialogs.dart';
+import 'package:dialogs/handy_dialogs.dart';
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ if(await confirmationDialog(context, "message", "confirmText", "cancelText")){
 }
 ```
 
-Displays an alert to confirm deletion
+Displays an alert to confirm deletion \n
 Shows a dialog and returns a bool
 
 ```dart
@@ -36,7 +36,7 @@ Shows a notification dialog with given title and message
 notificationDialog(buildContext, "title", "message");
 ```
 
-Shows a flash dialog or a simple dialog with @isFlash = false
+Shows a flash dialog or a simple dialog with @isFlash = false \n
 You can customize background color, leading, trailing, onTap function and duration of dialog 
 
 ```dart
