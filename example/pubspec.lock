@@ -128,7 +128,7 @@ packages:
     source: hosted
     version: "3.2.7"
   flash:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flash
       url: "https://pub.dartlang.org"
@@ -159,7 +159,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_vibrate:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_vibrate
       url: "https://pub.dartlang.org"
@@ -170,6 +170,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  handy_dialogs:
+    dependency: "direct main"
+    description:
+      name: handy_dialogs
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
   http:
     dependency: transitive
     description:
@@ -379,12 +386,12 @@ packages:
     source: sdk
     version: "0.0.99"
   sound_library:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: sound_library
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0"
+    version: "0.0.8"
   source_span:
     dependency: transitive
     description:
@@ -405,7 +412,7 @@ packages:
       name: storage_manager
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.3"
+    version: "0.0.6"
   stream_channel:
     dependency: transitive
     description:

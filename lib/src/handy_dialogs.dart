@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:sound_library/sound_library.dart';
 
 import 'buttons.dart';
-import 'haptics.dart';
 
 ///Delete confirmation
 ///Shows a dialog and returns a bool
@@ -16,20 +15,21 @@ Future<bool?> deleteConfirmation(BuildContext context) async {
     color: Colors.white,
   );
 
-  feedbackHeavy();
   return (await showDialog<bool>(
     context: context,
     barrierDismissible: true,
     builder: (BuildContext context) {
       return SimpleDialog(
         title: const Text("Confirm delete?"),
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Card(
               color: Colors.blueGrey,
-              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
               child: TextButton(
                   child: Text(
                     "Cancel",
@@ -44,7 +44,8 @@ Future<bool?> deleteConfirmation(BuildContext context) async {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Card(
-              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
               color: Colors.red[800],
               child: TextButton(
                   child: Text(
@@ -52,7 +53,6 @@ Future<bool?> deleteConfirmation(BuildContext context) async {
                     style: text,
                   ),
                   onPressed: () {
-                    feedbackSuccess();
                     SoundPlayer.i.play(Sounds.trash);
                     Navigator.of(context).pop(true);
                   }),
@@ -66,14 +66,16 @@ Future<bool?> deleteConfirmation(BuildContext context) async {
 
 ///Dialog for confirmation
 ///Shows a dialog with given question and returns a confirmation bool
-Future<bool> confirmationDialog(BuildContext context, String message, String confirmText, String cancelText) async {
+Future<bool> confirmationDialog(BuildContext context, String message,
+    String confirmText, String cancelText) async {
   bool? res = await showDialog<bool>(
     context: context,
     barrierDismissible: true,
     builder: (BuildContext context) {
       return SimpleDialog(
         title: Text(message),
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
         children: <Widget>[
           FittedBox(
             child: ConfirmDenyButtons(
@@ -95,7 +97,8 @@ Future<bool> confirmationDialog(BuildContext context, String message, String con
 
 ///Notification dialog
 ///Shows a notification dialog with given title and message
-notificationDialog(BuildContext buildContext, String title, String message, {Function? onTap, String? path}) async {
+notificationDialog(BuildContext buildContext, String title, String message,
+    {Function? onTap, String? path, Color? backgroundColor}) async {
   try {
     if (kDebugMode) {
       print(path);
@@ -114,7 +117,7 @@ notificationDialog(BuildContext buildContext, String title, String message, {Fun
               }
             }
           },
-          backgroundColor: Colors.blue[800],
+          backgroundColor: backgroundColor ?? Colors.blue[800],
           controller: controller,
           behavior: FlashBehavior.floating,
           position: FlashPosition.bottom,
@@ -143,7 +146,8 @@ notificationDialog(BuildContext buildContext, String title, String message, {Fun
       builder: (BuildContext context) {
         return SimpleDialog(
           title: Text(title),
-          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20))),
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(15.0),
@@ -158,7 +162,8 @@ notificationDialog(BuildContext buildContext, String title, String message, {Fun
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Card(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
                     color: Colors.blue[800],
                     child: TextButton(
                       onPressed: () {
@@ -178,7 +183,8 @@ notificationDialog(BuildContext buildContext, String title, String message, {Fun
                   padding: const EdgeInsets.all(10.0),
                   child: Card(
                     color: Colors.green[700],
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
                     child: TextButton(
                       onPressed: () {
                         if (onTap != null) onTap();
@@ -233,7 +239,9 @@ Future<void> showText(BuildContext context, String text, String subtitle,
               if (onTap != null) onTap();
             },
             borderWidth: isNotification ? 3 : 1,
-            borderColor: isNotification ? Colors.white : backgroundColor ?? Colors.blue[800],
+            borderColor: isNotification
+                ? Colors.white
+                : backgroundColor ?? Colors.blue[800],
             borderRadius: BorderRadius.circular(isNotification ? 25 : 10),
             margin: const EdgeInsets.all(15),
             horizontalDismissDirection: HorizontalDismissDirection.horizontal,
@@ -262,7 +270,8 @@ Future<void> showText(BuildContext context, String text, String subtitle,
         barrierDismissible: true,
         builder: (BuildContext context) {
           return SimpleDialog(
-            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20))),
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(20.0),

@@ -30,7 +30,8 @@ class _ConfirmDenyButtonsState extends State<ConfirmDenyButtons> {
   Widget build(BuildContext context) {
     screenHeight = widget.screenHeight ?? MediaQuery.of(context).size.height;
     screenWidth = widget.screenWidth ?? MediaQuery.of(context).size.width;
-    TextStyle text = TextStyle(fontSize: screenHeight / 34, color: Colors.white);
+    TextStyle text =
+        TextStyle(fontSize: screenHeight / 34, color: Colors.white);
     return Padding(
       padding: const EdgeInsets.all(5),
       child: Row(
@@ -42,7 +43,9 @@ class _ConfirmDenyButtonsState extends State<ConfirmDenyButtons> {
             },
             child: Container(
               padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(color: Colors.red[600], borderRadius: BorderRadius.circular(30)),
+              decoration: BoxDecoration(
+                  color: Colors.red[600],
+                  borderRadius: BorderRadius.circular(30)),
               child: Row(
                 children: <Widget>[
                   const Icon(
