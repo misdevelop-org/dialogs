@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  handy_dialogs: ^0.0.1
+  handy_dialogs: ^0.0.5
 
 dev_dependencies:
   flutter_test:
