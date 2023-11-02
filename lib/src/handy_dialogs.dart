@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flash/flash.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -108,29 +106,27 @@ notificationDialog(BuildContext buildContext, String title, String message,
       duration: const Duration(seconds: 5),
       builder: (context, controller) {
         return Flash(
-          onTap: () {
-            try {
-              onTap!();
-            } catch (err) {
-              if (kDebugMode) {
-                print(err);
-              }
-            }
-          },
-          backgroundColor: backgroundColor ?? Colors.blue[800],
           controller: controller,
-          behavior: FlashBehavior.floating,
           position: FlashPosition.bottom,
-          boxShadows: kElevationToShadow[4],
-          horizontalDismissDirection: HorizontalDismissDirection.horizontal,
-          child: FlashBar(
-            title: Text(
-              title,
-              style: const TextStyle(color: Colors.white, fontSize: 25),
-            ),
-            content: Text(
-              message,
-              style: const TextStyle(color: Colors.white70, fontSize: 20),
+          child: GestureDetector(
+            onTap: () {
+              if (onTap != null) onTap();
+            },
+            child: FlashBar(
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              behavior: FlashBehavior.floating,
+              margin: const EdgeInsets.all(20),
+              backgroundColor: backgroundColor ?? Colors.blue[800],
+              title: Text(
+                title,
+                style: const TextStyle(color: Colors.white, fontSize: 25),
+              ),
+              content: Text(
+                message,
+                style: const TextStyle(color: Colors.white70, fontSize: 20),
+              ),
+              controller: controller,
             ),
           ),
         );
@@ -225,32 +221,26 @@ Future<void> showText(BuildContext context, String text, String subtitle,
         duration: Duration(seconds: seconds),
         transitionDuration: Duration(seconds: isNotification ? 2 : 1),
         builder: (context, controller) {
-          double width = 400;
           return Flash(
             forwardAnimationCurve: Curves.elasticInOut,
             reverseAnimationCurve: Curves.elasticInOut,
-            barrierDismissible: true,
-            backgroundColor: backgroundColor ?? Colors.lightGreen[900],
             controller: controller,
-            behavior: FlashBehavior.floating,
             position: FlashPosition.bottom,
-            boxShadows: kElevationToShadow[4],
-            onTap: () {
-              if (onTap != null) onTap();
-            },
-            borderWidth: isNotification ? 3 : 1,
-            borderColor: isNotification
-                ? Colors.white
-                : backgroundColor ?? Colors.blue[800],
-            borderRadius: BorderRadius.circular(isNotification ? 25 : 10),
-            margin: const EdgeInsets.all(15),
-            horizontalDismissDirection: HorizontalDismissDirection.horizontal,
-            child: SizedBox(
-              width: min(width, MediaQuery.of(context).size.width),
+            child: GestureDetector(
+              onTap: () {
+                if (onTap != null) onTap();
+              },
               child: FlashBar(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(!isNotification ? 0 : 20))),
+                margin: !isNotification
+                    ? EdgeInsets.zero
+                    : const EdgeInsets.all(20),
                 shouldIconPulse: false,
                 icon: SizedBox(height: 30, width: 30, child: leading),
                 actions: trailing,
+                backgroundColor: backgroundColor ?? Colors.blue[800],
                 title: Text(
                   text,
                   style: const TextStyle(color: Colors.white, fontSize: 20),
@@ -259,6 +249,7 @@ Future<void> showText(BuildContext context, String text, String subtitle,
                   subtitle,
                   style: const TextStyle(color: Colors.white70, fontSize: 16),
                 ),
+                controller: controller,
               ),
             ),
           );

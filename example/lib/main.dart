@@ -36,53 +36,58 @@ class _MyHomePageState extends State<MyHomePage> {
           "Handy Dialogs",
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Card(
-            color: Colors.amber[100],
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            child: ListTile(
-              trailing: IconButton(
-                  onPressed: () async {
-                    await deleteConfirmation(context);
-                  },
-                  icon: const Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                  )), //Delete
-              leading: IconButton(
-                icon: Icon(
-                  Icons.notifications_active_rounded,
-                  color: Colors.amber[900],
-                ),
-                onPressed: () {
-                  notificationDialog(
-                      context, 'Notification dialog', '🦑🦑🦑🦑🦑🦑🦑🦑🦑');
-                },
-              ), //Notification
-              title: TextButton(
-                child: const Text('Display showText'),
-                onPressed: () {
-                  showText(context, 'Hi', '✨✨✨✨✨✨✨✨✨‍',
-                      backgroundColor: Colors.teal[800]);
-                },
-              ), //ShowText
-              subtitle: TextButton(
-                child: const Text('Confirmation Dialog'),
+      body: const Page(),
+    );
+  }
+}
+
+class Page extends StatelessWidget {
+  // const Page({super.key});
+  const Page({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Card(
+          color: Colors.amber[100],
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          child: ListTile(
+            trailing: IconButton(
                 onPressed: () async {
-                  if (await confirmationDialog(
-                      context, 'Do you agree?', 'Agree', 'Cancel')) {
-                    showText(context, 'Good!', '👍🏾',
-                        backgroundColor: Colors.green[400]);
-                  } else {
-                    showText(context, 'Bad!', '👎🏾',
-                        backgroundColor: Colors.red[400]);
-                  }
+                  await deleteConfirmation(context);
                 },
-              ), //Confirmation
-            ),
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                )), //Delete
+            leading: IconButton(
+              icon: Icon(
+                Icons.notifications_active_rounded,
+                color: Colors.amber[900],
+              ),
+              onPressed: () {
+                notificationDialog(context, 'Notification dialog', '🦑🦑🦑🦑🦑🦑🦑🦑🦑', onTap: () {
+                  showText(context, 'Hi', '✨✨✨✨✨✨✨✨✨‍', backgroundColor: Colors.teal[800], isNotification: true);
+                });
+              },
+            ), //Notification
+            title: TextButton(
+              child: const Text('Display showText'),
+              onPressed: () {
+                showText(context, 'Hi', '✨✨✨✨✨✨✨✨✨‍', backgroundColor: Colors.teal[800]);
+              },
+            ), //ShowText
+            subtitle: TextButton(
+              child: const Text('Confirmation Dialog'),
+              onPressed: () async {
+                if (await confirmationDialog(context, 'Do you agree?', 'Agree', 'Cancel')) {
+                  showText(context, 'Good!', '👍🏾', backgroundColor: Colors.green[400]);
+                } else {
+                  showText(context, 'Bad!', '👎🏾', backgroundColor: Colors.red[400]);
+                }
+              },
+            ), //Confirmation
           ),
         ),
       ),

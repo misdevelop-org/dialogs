@@ -1,3 +1,6 @@
+## 0.0.6
+Updated flash dependency
+
 ## 0.0.5
 Minor fixes
 

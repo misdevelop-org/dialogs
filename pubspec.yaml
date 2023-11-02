@@ -1,6 +1,6 @@
 name: handy_dialogs
 description: Handy dialogs for your apps logic easy & quick integration of frequently used dialogs
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/DameAri/dialogs
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flash: ^2.0.3+2
+  flash: ^3.0.5+2
   sound_library: ^0.1.1
 
 dev_dependencies:
