@@ -67,7 +67,8 @@ class Page extends StatelessWidget {
                 color: Colors.amber[900],
               ),
               onPressed: () {
-                notificationDialog(context, 'Notification dialog', '🦑🦑🦑🦑🦑🦑🦑🦑🦑', onTap: () {
+                notificationDialog(context, 'Notification dialog', '🦑🦑🦑🦑🦑🦑🦑🦑🦑', path: '/home/client/123',
+                    onTap: () {
                   showText(context, 'Hi', '✨✨✨✨✨✨✨✨✨‍', backgroundColor: Colors.teal[800], isNotification: true);
                 });
               },
@@ -82,9 +83,9 @@ class Page extends StatelessWidget {
               child: const Text('Confirmation Dialog'),
               onPressed: () async {
                 if (await confirmationDialog(context, 'Do you agree?', 'Agree', 'Cancel')) {
-                  showText(context, 'Good!', '👍🏾', backgroundColor: Colors.green[400]);
+                  showText(context, 'Nice!', '👍🏾', backgroundColor: Colors.green[400]);
                 } else {
-                  showText(context, 'Bad!', '👎🏾', backgroundColor: Colors.red[400]);
+                  showText(context, 'Ok, fine!', '👎🏾', backgroundColor: Colors.red[400]);
                 }
               },
             ), //Confirmation

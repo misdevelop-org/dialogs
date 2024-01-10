@@ -1,3 +1,7 @@
+## 0.1.0
+- Updated dependencies and documentation
+- Added optional parameters to customize dialogs
+
 ## 0.0.6
 Updated flash dependency
 

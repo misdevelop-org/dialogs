@@ -1,20 +1,22 @@
-<img src="https://firebasestorage.googleapis.com/v0/b/misdevelop.appspot.com/o/handy_dialogs%2Freadme_images%2FIMG_0447.PNG?alt=media&token=6701c44d-a2e6-44c7-b788-4673b24fdc81" alt="Handy Dialogs">  
+<img src="https://firebasestorage.googleapis.com/v0/b/misdevelop.appspot.com/o/handy_dialogs%2Freadme_images%2FPackages%20pub.dev%203.jpg?alt=media&token=a5a29f36-82db-4a73-9ec9-8fc0cc35250e" alt="Handy Dialogs">
 
 ## Features  
- Handy dialogs for your apps logic 🧚🏼‍👨🏼‍💻     
-Easy & quick integration of frequently used dialogs  
+ Handy dialogs for your apps 🧚🏼‍👨🏼‍💻  
+Easy & quick integration of frequently used dialogs
   
-## Getting started  
-  Add this import line  
+## Getting started
+
+  Add this import line
+
 ```dart 
 import 'package:dialogs/handy_dialogs.dart';
-```  
-  
-  ## Usage  
- #### Shows a dialog with given question and returns a confirmation bool  
+```
+## Usage
+#### Shows a dialog with given question and returns a confirmation bool
+
  ```dart 
- if(await confirmationDialog(context,
- "Do you agree?", "Agree", "Cancel"){
+ if(await confirmationDialog(
+  context, "Do you agree?", "Agree", "Cancel"){
   //function code 
   }
    ```
@@ -39,11 +41,13 @@ notificationDialog(context, "title", "message");
   
 <img src="https://firebasestorage.googleapis.com/v0/b/misdevelop.appspot.com/o/handy_dialogs%2Freadme_images%2FFB159562-6F05-4994-93FA-2970DDE5DA53.jpeg?alt=media&token=9f8c77ae-cf3b-4129-8ca5-c62136de638e" alt="Notification Dialog" width="200" height="400">      
       
-#### Shows a flash dialog or a simple dialog with isFlash = false  
-You can customize background color, leading, trailing, onTap function and duration of dialog       
+#### Shows a flash dialog or a simple dialog with isFlash = false
       
 ```dart  
-showText(context, "text", "subtitle",  
+showText(
+ context, 
+ "text", 
+ "subtitle",  
  backgroundColor = Colors.amber, 
  seconds = 5, 
  leading = Icon(Icons.info),
